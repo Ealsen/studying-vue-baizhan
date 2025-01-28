@@ -1,14 +1,14 @@
 <script>
-    export default {
-        print() {
-            alert(this.message);
-        },
-        data() {
-            return {
-                count : 0,
-            }
+export default {
+    print() {
+        alert(this.message);
+    },
+    data() {
+        return {
+            count: 0,
         }
     }
+}
 </script>
 
 <template>

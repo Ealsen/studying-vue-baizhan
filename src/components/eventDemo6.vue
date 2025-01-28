@@ -31,9 +31,9 @@ export default {
         <a @click.prevent="clickHandle" href="https://www.baidu.com" @click.stop="handleClick">百度</a>
     </div>
     <div>
-    <h3>测试冒泡</h3>
-    <div @click="clickDiv">
-    <p @click.stop="clickP">点击我，我会阻止冒泡</p>
-    </div>
+        <h3>测试冒泡</h3>
+        <div @click="clickDiv">
+            <p @click.stop="clickP">点击我，我会阻止冒泡</p>
+        </div>
     </div>
 </template>

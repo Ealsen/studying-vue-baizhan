@@ -29,6 +29,4 @@ import computeDemo from './components/computeDemo.vue'
 </template>
 
 
-<style>
-
-</style>
+<style></style>

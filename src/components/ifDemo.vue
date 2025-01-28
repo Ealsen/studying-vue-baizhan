@@ -23,8 +23,8 @@ export default {
         <p v-else-if="whatLetter === 'B'">This is B</p>
         <p v-else-if="whatLetter === 'C'">This is C</p>
         <p v-else>This is not A, B, or C; it's {{ whatLetter }}</p>
-        <button @click="whatLetter = whatLetter === 'D' ? 'A' : 
-                whatLetter === 'A' ? 'B' : whatLetter === 'B' ? 'C' : 'D'">ChangeLetter</button>
+        <button @click="whatLetter = whatLetter === 'D' ? 'A' :
+            whatLetter === 'A' ? 'B' : whatLetter === 'B' ? 'C' : 'D'">ChangeLetter</button>
         <p v-show="isShow">You can see me.</p>
     </div>
 </template>

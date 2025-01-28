@@ -26,7 +26,7 @@ export default {
     <div v-bind:class="msg1">{{ msg1 }}
     </div>
     <button :disabled="isButtonDisabled">Button</button>
-    <button @click="isButtonDisabled =!isButtonDisabled">SwitchDisabled</button>
+    <button @click="isButtonDisabled = !isButtonDisabled">SwitchDisabled</button>
     <div v-bind="objHello">H</div>
 </template>
 

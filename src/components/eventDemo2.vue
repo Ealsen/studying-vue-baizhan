@@ -1,19 +1,19 @@
 <script>
-    export default {
-        data() {
-            return {
-                count : 0,
-            }
+export default {
+    data() {
+        return {
+            count: 0,
+        }
+    },
+    methods: {
+        countUp() {
+            this.count++;
         },
-        methods: {
-            countUp() {
-                this.count++;
-            },
-            countDown() {
-                this.count--;
-            }
+        countDown() {
+            this.count--;
         }
     }
+}
 </script>
 
 <template>
