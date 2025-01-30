@@ -11,6 +11,7 @@ import eventDemo5 from './components/eventDemo5.vue'
 import eventDemo6 from './components/eventDemo6.vue'
 import arrayList from './components/arrayList.vue'
 import computeDemo from './components/computeDemo.vue'
+import classDemo from './components/classDemo.vue'
 
 </script>
 
@@ -26,6 +27,7 @@ import computeDemo from './components/computeDemo.vue'
     <eventDemo6 />
     <arrayList />
     <computeDemo />
+    <classDemo />
 </template>
 
 
