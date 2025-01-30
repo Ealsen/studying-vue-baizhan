@@ -12,6 +12,9 @@ import eventDemo6 from './components/eventDemo6.vue'
 import arrayList from './components/arrayList.vue'
 import computeDemo from './components/computeDemo.vue'
 import classDemo from './components/classDemo.vue'
+import styleDemo from './components/styleDemo.vue'
+import watchDemo from './components/watchDemo.vue'
+import modelDemo from './components/modelDemo.vue'
 
 </script>
 
@@ -28,6 +31,9 @@ import classDemo from './components/classDemo.vue'
     <arrayList />
     <computeDemo />
     <classDemo />
+    <styleDemo />
+    <watchDemo />
+    <modelDemo />
 </template>
 
 
