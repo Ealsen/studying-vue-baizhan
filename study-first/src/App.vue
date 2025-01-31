@@ -1,4 +1,5 @@
 <script setup>
+// script setup 带有setup语法的script标签
 import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import ifDemo from './components/ifDemo.vue'
