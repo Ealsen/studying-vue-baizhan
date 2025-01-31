@@ -1,8 +1,13 @@
 <template>
     <MyComponent />
+
+    <!-- 组件的嵌套关系 -->
+    <h1 class="zhujiantitle1">组件的嵌套关系</h1>
     <headDemo />
     <mainDemo />
     <asideDemo />
+    <!-- 组件的嵌套关系 -->
+
 </template>
 
 <script>
@@ -16,9 +21,13 @@ export default {
         MyComponent,
         headDemo,
         mainDemo,
-        asideDemo
+        asideDemo,
     }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.zhujiantitle1 {
+    color: red;
+}
+</style>
