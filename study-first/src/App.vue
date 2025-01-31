@@ -17,6 +17,7 @@ import styleDemo from './components/styleDemo.vue'
 import watchDemo from './components/watchDemo.vue'
 import modelDemo from './components/modelDemo.vue'
 import refDemo from './components/refDemo.vue'
+import parentDemo from './components/parentDemo.vue'
 
 </script>
 
@@ -37,6 +38,7 @@ import refDemo from './components/refDemo.vue'
     <watchDemo />
     <modelDemo />
     <refDemo />
+    <parentDemo />
 </template>
 
 
