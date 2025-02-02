@@ -19,6 +19,11 @@ import modelDemo from './components/modelDemo.vue'
 import refDemo from './components/refDemo.vue'
 import parentDemo from './components/parentDemo.vue'
 import componentADemo from './components/componentADemo.vue'
+import attributesDemo from './components/attributesDemo.vue'
+import slotsBase from './components/slotsBase.vue'
+import slotsTwo from './components/slotsTwo.vue'
+// 定义 messageSlotTwoFu 变量
+const messageSlotTwoFu = ref("我是插槽传递的内容messageSlotTwoFu");
 
 </script>
 
@@ -41,7 +46,38 @@ import componentADemo from './components/componentADemo.vue'
     <refDemo />
     <parentDemo />
     <componentADemo />
+    <attributesDemo class="attributesDemo" />
+    <slotsBase>
+        <div class="slotsBaseFu">
+            <h4>插槽模板</h4>
+            <h4>插槽模板</h4>
+            <h4>插槽模板</h4>
+        </div>
+    </slotsBase>
+    <slotsTwo>
+        <template v-slot:header>
+            <h4>header</h4>
+        </template>
+        <template #footer>
+            <!-- #xxx 为 v-slot:xxx缩写 -->
+            <h4>footer</h4>
+        </template>
+        <h4>插槽模板2</h4>
+        <h4>{{ messageSlotTwoFu }}</h4>
+    </slotsTwo>
 </template>
 
 
-<style></style>
+<style scoped>
+.slotsBaseFu {
+    margin: auto;
+    border: 1px solid rgb(61, 0, 0);
+    /* color: red; */
+}
+
+.slotsTwoFu {
+    margin: auto;
+    border: 1px solid rgb(61, 0, 0);
+    /* color: red; */
+}
+</style>
