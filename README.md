@@ -6,6 +6,7 @@
 
 + study-first 是一些Vue的基础语法
 + vue-second 是一些Vue的结构和组件化
++ vue-component-data-zuru 是一些Vue组件间的数据传递,依赖注入
 
 ## 视频教程
 【2023最新版】Vue3从入门到精通，零基础小白也能听得懂，写得出，web前端快速入门教程
