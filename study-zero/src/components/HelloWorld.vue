@@ -1,6 +1,8 @@
 <script>
 import myComponent from './myComponent.vue'
 import importThree from './importThree.vue';
+import testComponentVue from './testComponent.vue';
+import toDoList from './toDoList.vue';
 
 export default {
     // 写出八个生命周期函数
@@ -35,6 +37,8 @@ export default {
     components: {
         myComponent,
         importThree,
+        testComponentVue,
+        toDoList,
     },
     data() {
         return {
@@ -162,6 +166,10 @@ export default {
     <p class="souSuobox1" v-if="dataFromSecondMessage">子组件数据：{{ dataFromSecondMessage }}</p>
 
     <import-three></import-three>
+
+    <testComponentVue></testComponentVue>
+
+    <to-do-list></to-do-list>
 </template>
 
 <style scoped>
