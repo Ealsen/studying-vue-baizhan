@@ -3,6 +3,12 @@ import myComponent from './myComponent.vue'
 import importThree from './importThree.vue';
 import testComponentVue from './testComponent.vue';
 import toDoList from './toDoList.vue';
+import axiosRequesting from './axiosRequesting.vue';
+import requestingPackage from './requestingPackage.vue';
+import FingerUnion from './fingerUnion.vue';
+import testRouter from './testRouter.vue';
+
+import { mapState } from 'vuex';
 
 export default {
     // 写出八个生命周期函数
@@ -32,16 +38,25 @@ export default {
     unmounted() {
         console.log('unmounted');
     },
-    // 写出三个自定义事件
+
     name: 'HelloWorld',
+    computed: {
+        // ...扩展运算符
+        ...mapState(['counter']), // 映射Vuex数据
+    },
     components: {
         myComponent,
         importThree,
         testComponentVue,
         toDoList,
+        axiosRequesting,
+        requestingPackage,
+        FingerUnion,
+        testRouter,
     },
     data() {
         return {
+            componentSwitch: false,
             h1_msg: '模板语法',
             mess: 'Hello World',
             number1: 10,
@@ -107,6 +122,9 @@ export default {
             this.dataFromSecondMessage = dataFromSecond
         },
     },
+    mounted() {
+        console.log('组件HelloWorld已挂载完成，打印Vuex数据counter：', this.$store.state.counter);
+    },
 }
 
 </script>
@@ -159,6 +177,11 @@ export default {
         <h1>{{ h6_msg }}</h1>
         <p v-if="lifeCycleMsg">生命周期函数执行顺序：{{ lifeCycleMsg }}</p>
 
+        <div class="cVuexData" v-if="this.$store.state.counter">
+            <h1>Vuex状态管理</h1>
+            <p id="cVuexDataP">Vuex数据读取1：{{ this.$store.state.counter }}</p>
+            <p id="cVuexDataP">Vuex数据读取2：{{ counter }}</p>
+        </div>
     </div>
     <my-component :messToSecond="messToSecond" :ageToSecond="ageToSecond" :arrayToSecond="arrayToSecond"
         :objectToSecond="objectToSecond" @dataFromSecond="getDataFromSecond"></my-component>
@@ -167,9 +190,22 @@ export default {
 
     <import-three></import-three>
 
-    <testComponentVue></testComponentVue>
+    <div class="componentSwitch" v-if="componentSwitch">
+        <testComponentVue></testComponentVue>
+    </div>
 
-    <to-do-list></to-do-list>
+    <div class="componentSwitch" v-if="componentSwitch">
+        <to-do-list></to-do-list>
+    </div>
+
+    <axiosRequesting></axiosRequesting>
+
+    <requestingPackage></requestingPackage>
+
+    <finger-union></finger-union>
+
+    <test-router></test-router>
+
 </template>
 
 <style scoped>
@@ -215,5 +251,9 @@ export default {
     color: #0116f8;
     border: #f80101 2px solid;
     width: 30%;
+}
+
+#cVuexDataP {
+    color: #eb0a0a;
 }
 </style>

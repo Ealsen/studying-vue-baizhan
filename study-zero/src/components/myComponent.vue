@@ -48,6 +48,9 @@ export default {
             this.$emit('dataFromSecond', this.dataFromSecond);
         },
     },
+    mounted() {
+        console.log('组件myComponent挂载完成，打印Vuex数据counter：', this.$store.state.counter);
+    },
 }
 </script>
 

@@ -42,7 +42,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-	height: 500px;
+    height: 500px;
     margin: 30px auto;
     padding: 20px;
     border: #cf372b 1px solid;
