@@ -133,82 +133,83 @@ export default {
 </script>
 
 <template>
-    <div class="firstVueComponent">
-        <h1>{{ h1_msg }}</h1>
-        <p>{{ mess }}</p>
-        <span v-html="linkaBing"></span>
-        <br>
-        <p v-bind:id="dynamicId">{{ dynamicId }}</p>
-        <p>number1 * 2 = {{ number1 * 2 }}</p>
+    <div class="rootDiv">
+        <div class="firstVueComponent">
+            <h1>{{ h1_msg }}</h1>
+            <p>{{ mess }}</p>
+            <span v-html="linkaBing"></span>
+            <br>
+            <p v-bind:id="dynamicId">{{ dynamicId }}</p>
+            <p>number1 * 2 = {{ number1 * 2 }}</p>
 
-        <h1>{{ h2_msg }}</h1>
-        <p v-if="isFlag">Ture</p>
-        <p v-else>False</p>
+            <h1>{{ h2_msg }}</h1>
+            <p v-if="isFlag">Ture</p>
+            <p v-else>False</p>
 
-        <p v-show="isFlag">Show Ture</p>
-        <p v-show="!isFlag">Show False</p>
+            <p v-show="isFlag">Show Ture</p>
+            <p v-show="!isFlag">Show False</p>
 
-        <h1>{{ h3_msg }}</h1>
-        <ul>
-            <li v-for="(item, index) in newsList1" :key="index">{{ item.title }} - {{ item.content }}</li>
-        </ul>
+            <h1>{{ h3_msg }}</h1>
+            <ul>
+                <li v-for="(item, index) in newsList1" :key="index">{{ item.title }} - {{ item.content }}</li>
+            </ul>
 
-        <h1>{{ h4_msg }}</h1>
-        <button @click="btnCount++">{{ btnCount }}</button>
-        <button @click="alertHandlerHello">HelloVueBtn</button>
-        <div class="messageBox1"> {{ messageObject1.name }}
-            <span v-if="messageObject1.message">：</span>
-            {{ messageObject1.message }} <br> {{
-                visualMess1 }}
+            <h1>{{ h4_msg }}</h1>
+            <button @click="btnCount++">{{ btnCount }}</button>
+            <button @click="alertHandlerHello">HelloVueBtn</button>
+            <div class="messageBox1"> {{ messageObject1.name }}
+                <span v-if="messageObject1.message">：</span>
+                {{ messageObject1.message }} <br> {{
+                    visualMess1 }}
+            </div>
+            <button @click="backMessageHandler">撤回消息</button>
+
+            <div class="messageBox2"> {{ messageObject2.name }}
+                <span v-if="messageObject2.message">：</span>
+                {{ messageObject2.message }} <br> {{
+                    visualMess2 }}
+                <input type="text" v-model="messageObject2.message">
+                <button @click="sendMessageHandler(messageObject2.message)">发送消息</button>
+            </div>
+
+            <h1>{{ h5_msg }}</h1>
+            <input type="text" v-model="doubleDataBand1">
+            <!-- 可加入 v-model.lazy 懒惰绑定 .trim 去除空格 -->
+            <p class="souSuobox1">搜索：{{ doubleDataBand1 }}</p>
+            <button @click="getSousuoResultHandler">百度一下</button>
+
+            <h1>{{ h6_msg }}</h1>
+            <p v-if="lifeCycleMsg">生命周期函数执行顺序：{{ lifeCycleMsg }}</p>
+
+            <div class="cVuexData" v-if="this.$store.state.counter">
+                <h1>Vuex状态管理</h1>
+                <p id="cVuexDataP">Vuex数据读取1：{{ this.$store.state.counter }}</p>
+                <p id="cVuexDataP">Vuex数据读取2：{{ counter }}</p>
+            </div>
         </div>
-        <button @click="backMessageHandler">撤回消息</button>
+        <my-component :messToSecond="messToSecond" :ageToSecond="ageToSecond" :arrayToSecond="arrayToSecond"
+            :objectToSecond="objectToSecond" @dataFromSecond="getDataFromSecond"></my-component>
 
-        <div class="messageBox2"> {{ messageObject2.name }}
-            <span v-if="messageObject2.message">：</span>
-            {{ messageObject2.message }} <br> {{
-                visualMess2 }}
-            <input type="text" v-model="messageObject2.message">
-            <button @click="sendMessageHandler(messageObject2.message)">发送消息</button>
+        <p class="souSuobox1" v-if="dataFromSecondMessage">子组件数据：{{ dataFromSecondMessage }}</p>
+
+        <import-three></import-three>
+
+        <div class="componentSwitch" v-if="componentSwitch">
+            <testComponentVue></testComponentVue>
         </div>
 
-        <h1>{{ h5_msg }}</h1>
-        <input type="text" v-model="doubleDataBand1">
-        <!-- 可加入 v-model.lazy 懒惰绑定 .trim 去除空格 -->
-        <p class="souSuobox1">搜索：{{ doubleDataBand1 }}</p>
-        <button @click="getSousuoResultHandler">百度一下</button>
-
-        <h1>{{ h6_msg }}</h1>
-        <p v-if="lifeCycleMsg">生命周期函数执行顺序：{{ lifeCycleMsg }}</p>
-
-        <div class="cVuexData" v-if="this.$store.state.counter">
-            <h1>Vuex状态管理</h1>
-            <p id="cVuexDataP">Vuex数据读取1：{{ this.$store.state.counter }}</p>
-            <p id="cVuexDataP">Vuex数据读取2：{{ counter }}</p>
+        <div class="componentSwitch" v-if="componentSwitch">
+            <to-do-list></to-do-list>
         </div>
+
+        <axiosRequesting></axiosRequesting>
+
+        <requestingPackage></requestingPackage>
+
+        <finger-union></finger-union>
+
+        <test-router></test-router>
     </div>
-    <my-component :messToSecond="messToSecond" :ageToSecond="ageToSecond" :arrayToSecond="arrayToSecond"
-        :objectToSecond="objectToSecond" @dataFromSecond="getDataFromSecond"></my-component>
-
-    <p class="souSuobox1" v-if="dataFromSecondMessage">子组件数据：{{ dataFromSecondMessage }}</p>
-
-    <import-three></import-three>
-
-    <div class="componentSwitch" v-if="componentSwitch">
-        <testComponentVue></testComponentVue>
-    </div>
-
-    <div class="componentSwitch" v-if="componentSwitch">
-        <to-do-list></to-do-list>
-    </div>
-
-    <axiosRequesting></axiosRequesting>
-
-    <requestingPackage></requestingPackage>
-
-    <finger-union></finger-union>
-
-    <test-router></test-router>
-
 </template>
 
 <style scoped>
