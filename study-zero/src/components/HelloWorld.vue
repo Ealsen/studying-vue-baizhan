@@ -10,6 +10,10 @@ import testRouter from './testRouter.vue';
 
 import { mapState } from 'vuex';
 
+import { mapGetters } from 'vuex/dist/vuex.cjs.js';
+
+import { mapMutations } from 'vuex';
+
 export default {
     // 写出八个生命周期函数
     // 生命周期函数的执行顺序
@@ -43,6 +47,7 @@ export default {
     computed: {
         // ...扩展运算符
         ...mapState(['counter']), // 映射Vuex数据
+        ...mapGetters(['isThan1000Bigger']), // 映射Vuex计算属性
     },
     components: {
         myComponent,
@@ -124,6 +129,17 @@ export default {
             console.log("来自secondVueComponent的数据：" + dataFromSecond)
             this.dataFromSecondMessage = dataFromSecond
         },
+        addCounterForVuex() {
+            // ("函数", "参数")
+            this.$store.commit('addCounter', 15);
+        },
+        ...mapMutations(['addCounter']), // 映射Vuex方法
+        addCounterForVuex2() {
+            this.addCounter(15); // 调用Vuex方法
+        },
+        asyncAddCounterForVuex() {
+            this.$store.dispatch('asyncAddCounter', 15);
+        }
     },
     mounted() {
         console.log('组件HelloWorld已挂载完成，打印Vuex数据counter：', this.$store.state.counter);
@@ -185,6 +201,12 @@ export default {
                 <h1>Vuex状态管理</h1>
                 <p id="cVuexDataP">Vuex数据读取1：{{ this.$store.state.counter }}</p>
                 <p id="cVuexDataP">Vuex数据读取2：{{ counter }}</p>
+                <p id="cVuexDataP">Vuex数据读取3：{{ this.$store.getters.isThan1000Bigger }}</p>
+                <p id="cVuexDataP">Vuex数据读取4：{{ isThan1000Bigger }}</p>
+                <button @click="addCounterForVuex">Vuex数据增加</button>
+                <button @click="addCounterForVuex2">Vuex数据增加2</button>
+                <!-- 异步数据增加 -->
+                <button @click="asyncAddCounterForVuex">Vuex数据异步增加</button>
             </div>
         </div>
         <my-component :messToSecond="messToSecond" :ageToSecond="ageToSecond" :arrayToSecond="arrayToSecond"
