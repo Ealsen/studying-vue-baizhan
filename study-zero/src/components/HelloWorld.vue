@@ -96,6 +96,9 @@ export default {
         }
     },
     methods: {
+        testFuncPrint() {
+            console.log('testFuncPrint')
+        },
         alertHandlerHello() {
             alert('Hello Vue!')
         },
