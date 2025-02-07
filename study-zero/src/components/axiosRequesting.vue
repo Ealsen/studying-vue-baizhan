@@ -1,8 +1,11 @@
 <template>
-    <div class="axios-requesting">
-        <h1 class="title">axiosRequesting</h1>
-        <p class="content" v-if="chengpin.title">{{ chengpin.title }}</p>
-        <p class="content" v-if="blueberrypaiIsLogin">blueberrypaiIsLogin</p>
+    <div class="root">
+        <div class="axios-requesting">
+            <h1 class="title">axiosRequesting</h1>
+            <p class="content" v-if="chengpin.title">{{ chengpin.title }}</p>
+            <p class="content" v-if="blueberrypaiIsLogin">blueberrypaiIsLogin</p>
+        </div>
+        <div class="loadingVuex">加载Vuex的Counter的值：{{ this.$store.state.counter }}</div>
     </div>
 </template>
 
@@ -75,6 +78,15 @@ export default {
 
 <style scoped>
 .axios-requesting {
+    border: black 1px solid;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 30px auto;
+}
+
+
+.loadingVuex {
     border: black 1px solid;
     background-color: #ffffff;
     padding: 10px;
